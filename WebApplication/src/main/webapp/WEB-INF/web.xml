@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+  >
+  <display-name>hatch</display-name>
+
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>org.smurve.hsr2014.web.MVCConfig</param-value>
+  </context-param>
+
+  <!-- Possible values are "development" and "production". Check the HatchProduction
+        and HatchDevelopment classes to find out how this can be used. -->
+  <context-param>
+    <param-name>spring.profiles.active</param-name>
+    <param-value>development</param-value>
+  </context-param>
+
+  <!--
+  <filter>
+      <filter-name>RequestContextFilter</filter-name>
+      <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+      <filter-name>RequestContextFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  -->
+
+  <filter>
+    <filter-name>corsFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>corsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>rest</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>rest</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-2">
+
+    <div ng-repeat="gent in allGents">
+      <div class="gent-selector" ng-click="setCurrentGent(gent)"><h2>{{gent.label.plural}}</h2></div>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <h2>{{selectedGent.label.plural}}</h2>
+
+    <!--
+    don't know why this doesn't work
+    <div class="grid-style" ng-grid="gridOptions"></div>
+    -->
+
+    <table class="data-table">
+      <thead></thead>
+      <tr ng-repeat="entity in currentDataset">
+        <td ng-repeat="col in entity">{{col.value}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>

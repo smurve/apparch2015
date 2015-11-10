@@ -1,0 +1,251 @@
+/* Space out content a bit */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+.myalerts {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    width: 48%;
+}
+
+.modal-content {
+    color: #606060;
+    background-color: #F0F0F0;
+}
+
+table.data-table {
+
+}
+
+table.data-table tbody tr {
+}
+
+table.data-table tbody tr td {
+  padding-left: 50px;
+}
+
+tr:hover {
+  background-color: #E0E0E0;
+}
+
+.alert-danger {
+    background-color: #FFA0A0;
+    box-shadow: 10px 10px 10px rgba(192, 192, 192, 0.8);
+}
+
+.alert-info {
+    background-color: #82a3dd;
+    box-shadow: 10px 10px 10px rgba(192, 192, 192, 0.8);
+}
+
+.grid-style {
+  border: 1px solid #D0D0D0;
+  width: 800px;
+  height: 200px;
+}
+
+.alert-warning {
+    background-color: #FFFF80;
+    box-shadow: 10px 10px 10px rgba(192, 192, 192, 0.8);
+}
+
+.alert-success {
+    background-color: #B0FFB0;
+    box-shadow: 10px 10px 10px rgba(192, 192, 192, 0.8);
+}
+
+.story-card-header {
+}
+
+.in-card-button {
+    vertical-align: top;
+    float: right;
+    border-radius: 10px;
+}
+
+.angella-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.content-header {
+    padding-left: 10px;
+    background-color: #606060;
+    color: #f0f0f0;
+}
+
+.story-card {
+    padding-top: 10px;
+}
+
+.edit-story {
+    position: relative;
+    right: 0px;
+}
+
+.buttons-bar {
+    margin-top: 10px;
+}
+
+.real-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+
+.title-clean {
+    color: #808080;
+    padding-right: 10px;
+}
+
+.title-dirty {
+    color: #000000;
+    padding-right: 10px;
+}
+
+.story-description {
+    padding-right: 10px;
+}
+
+.myh2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #606060;
+    padding-left: 10px;
+}
+
+.story-column {
+}
+
+.myh4 {
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+.rounded {
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.type-feature {
+    background-color: #c0ffc0;
+}
+
+.type-bug {
+    background-color: #ffc0c0;
+}
+
+.type-enhancement {
+    background-color: #c0ffff;
+}
+
+.my-button {
+    margin-top: 10px;
+}
+
+.type-spike {
+    background-color: #c0c0ff;
+}
+
+.story {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-left: 10px;
+    border: 2px solid #f0f0f0;
+}
+
+.selected-story {
+    border: 2px solid #ff0000;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}

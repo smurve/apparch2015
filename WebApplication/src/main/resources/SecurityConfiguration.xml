@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+  <!-- We use our own permission evaluator, for it considers multi-tenancy
+      and DB-based RBAC! -->
+  <global-method-security pre-post-annotations="enabled" authentication-manager-ref="authenticationManager">
+    <expression-handler ref="methodExpressionHandler"/>
+  </global-method-security>
+
+
+  <authentication-manager alias="authenticationManager"/>
+
+  <!-- tests must be freely accessible during development
+  <http pattern="/test/scenarios/e2e/*" security="none" />
+  <http pattern="/test/lib/**" security="none" />
+
+
+  <http pattern="/robots.txt" security="none" />
+  <http pattern="/webclient/**" security="none" />
+
+
+  <http pattern="/rest/translations/bundles" security="none" />
+
+
+  <http pattern="/rest/countries" security="none" />
+
+
+  <http pattern="/rest/users/exists/{username}" security="none" />
+
+  <http pattern="/rest/users/secondAuth/{username}" security="none" />
+
+
+  <http pattern="/rest/registration" security="none" />
+
+
+  <http pattern="/rest/users/additionalAuth/{username}" security="none" />
+  <http pattern="/rest/users/lostGoogleCode/{username}" security="none" />
+  -->
+
+  <!-- restful services filter chain
+   -The entrypoint handles requests without SecurityContext. We send back 401, the client must know what to do.
+   -webExpressionHandler evaluates whether the current user is allowed to access a resource, namely this application by means of the URL
+  -->
+  <http pattern="/index.html" security="none" authentication-manager-ref="authenticationManager"/>
+
+  <http pattern="/**" entry-point-ref="notAuthenticatedEntryPoint" create-session="never"
+        use-expressions="true" authentication-manager-ref="authenticationManager">
+    <anonymous enabled="false"/>
+    <intercept-url pattern="/**" access="hasPermission('application','any')"/>
+    <expression-handler ref="webExpressionHandler"/>
+  </http>
+
+
+  <!-- Webclient filter chain - Security for all html pages - ->
+  <http pattern="/**" create-session="ifRequired" use-expressions="true"
+        access-denied-page="/access-denied.html" authentication-manager-ref="authenticationManager" >
+      <intercept-url pattern="/**" access="hasPermission('application','any')" />
+      <form-login login-page="/index.html" authentication-failure-handler-ref="customUrlAuthenticationFailureHandler" authentication-success-handler-ref="customUrlAuthenticationSuccessHandler"/>
+      <anonymous enabled="false" granted-authority="ANONYMOUS" username="anonymous" />
+      <expression-handler ref="webExpressionHandler" />
+      <logout logout-url="/dologout" invalidate-session="true" success-handler-ref="customLogoutSuccessHandler" />
+  </http>
+  -->
+</beans:beans>

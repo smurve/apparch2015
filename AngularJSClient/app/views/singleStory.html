@@ -1,0 +1,81 @@
+<div>
+    <div class="modal-header">
+        <h3>{{currentInstance.title}}</h3>
+    </div>
+
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="inputTitle">Title</label>
+
+                <div class="controls">
+                    <input type="text" placeholder="Title" ng-model="currentInstance.title" id="inputTitle"
+                           ng-disabled="!currentInstance.dirty"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputDescription">Description</label>
+
+                <div class="controls">
+                    <textarea id="inputDescription" placeholder="Description" rows="3"
+                              ng-model="currentInstance.description" ng-disabled="!currentInstance.dirty">
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCriteria">Criteria</label>
+
+                <div class="controls">
+                    <input type="text" placeholder="Criteria" ng-model="currentInstance.criteria" id="inputCriteria"
+                           ng-disabled="!currentInstance.dirty"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputStatus">Status</label>
+
+                <div class="controls">
+                    <select id="inputStatus" ng-model="currentStatus" ng-options="s.name for s in statuses"
+                            ng-change="setCurrentStatus(currentStatus)" ng-disabled="!currentInstance.dirty"></select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputType">Type</label>
+
+                <div class="controls">
+                    <select id="inputType" ng-model="currentType" ng-options="s.name for s in types"
+                            ng-change="setCurrentType(currentType)" ng-disabled="!currentInstance.dirty"></select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputReporter">Reporter</label>
+
+                <div class="controls">
+                    <input type="text" placeholder="Reporter" ng-model="currentInstance.reporter" id="inputReporter"
+                           ng-disabled="!currentInstance.dirty"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputTitle">Assignee</label>
+
+                <div class="controls">
+                    <input type="text" placeholder="Assignee" ng-model="currentInstance.assignee" id="inputAssignee"
+                           ng-disabled="!currentInstance.dirty"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary my-button" ng-click="setDirty()" ng-disabled="currentInstance.dirty">Edit <i
+                class="glyphicon glyphicon-edit"></i></button>
+        <button class="btn btn-primary my-button" ng-click="save()" ng-disabled="!currentInstance.dirty">Save <i
+                class="glyphicon glyphicon-ok-sign"></i></button>
+        <button class="btn btn-warning my-button" ng-click="close()">Close <i
+                class="glyphicon glyphicon-remove"></i></button>
+    </div>
+</div>

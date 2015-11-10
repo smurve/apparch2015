@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/demo.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/demo.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <!-- production - -> <logger name="org.smurve.hsr2014" level="INFO" additivity="false">
+        <appender-ref ref="FILE" /> </logger> -->
+
+    <logger name="net.sf.ehcache"
+            level="OFF" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="org.springframework.cache." level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="org.smurve.hsr2014.security.AuditLogger"
+            level="DEBUG" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+
+    <logger name="org.smurve.hsr2014" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <logger name="org.hibernate.event.def" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+	<!-- set to DEBUG to show SQL statements -->
+    <logger name="org.hibernate.SQL" level="OFF">
+        <appender-ref ref="CONSOLE" additivity="false"/>
+    </logger>
+
+    <logger name="org.springframework.security" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+</configuration>

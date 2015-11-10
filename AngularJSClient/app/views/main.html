@@ -1,0 +1,52 @@
+<div class="buttons-bar">
+    <button class="btn btn-primary" ng-click="createStory()" title="new story">New Story <i
+            class="glyphicon glyphicon-plus"></i>
+    </button>
+    <button class="btn btn-primary" ng-click="safeLoadStories()" title="reload">Reload <i
+            class="glyphicon glyphicon-refresh"></i>
+    </button>
+    <button class="btn btn-primary" ng-click="saveDirties()" title="Save">Save changes <i
+            class="glyphicon glyphicon-save"></i></button>
+    <button class="btn btn-primary" ng-click="removeCurrent()" title="remove current">Remove current <i
+            class="glyphicon glyphicon-trash"></i></button>
+</div>
+
+
+<div class="row">
+    <div class="col-md-2 story-column" ng-repeat="status in statuses">
+        <div class="myh2">{{status.name}}</div>
+
+        <div ng-class="storyClass(story)" class="story-card"
+             ng-repeat="story in stories() | filter:{status:status.name}"
+             ng-click="setCurrentStory(story)">
+
+            <div class="story-card-header">
+                <span class="myh4" ng-class="story.dirty? 'title-dirty' : 'title-clean'">{{story.title}}</span>
+                <button class="btn btn-xs btn-info in-card-button" ng-click="editStory(story)">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </button>
+                <button class="btn btn-xs btn-info in-card-button" ng-click="safeRemoveStory(story)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+                <button class="btn btn-xs btn-info in-card-button" ng-click="viewStory(story)">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                </button>
+            </div>
+            <div class="story-description">{{story.description}}</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="real-footer">
+    Project summary: everything on track.
+</div>
+
+<div class="myalerts">
+    <alert ng-repeat="alert in helferlein.alerts()" type="alert.type" close="helferlein.closeAlert($index)">
+        <strong>{{alert.msg}}</strong>
+    </alert>
+</div>
+
+
+
