@@ -85,6 +85,7 @@ public class MultiTenantSecurityTest {
     contract_should_end_up_in_db();
 
     the_database_should_show(1, ContractType.CONSULTING);
+
   }
 
   @Test
@@ -178,7 +179,7 @@ public class MultiTenantSecurityTest {
     there_shoud_be_an_audit_record_for("wolfie");
   }
 
-  //@Test
+  @Test
   public void test_ownership_restrictions() {
 
     given_Tenants_Schmitz_and_Schulz();

@@ -11,7 +11,9 @@ import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 
+@Component
 @Aspect
 @Order(AspectOrder.OUTERMOST)
 public class SecuredReturnValueAspect {

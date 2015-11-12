@@ -2,6 +2,7 @@ package org.smurve.hsr2014.security;
 
 import org.smurve.hsr2014.configuration.SpringJpaConfiguration;
 import org.smurve.hsr2014.configuration.SpringSecurityContext;
+import org.smurve.hsr2014.hidden.SecuredReturnValueAspect;
 import org.smurve.hsr2014.repo.HsqlDbHelper;
 import org.smurve.hsr2014.utils.db.DatabaseConnector;
 import org.smurve.hsr2014.utils.db.hsql.HSqlConnector;

@@ -13,9 +13,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-/**
- * Created by wgiersche on 16/11/14.
- */
 @Service
 public class ContractServiceImpl implements ContractService {
 
